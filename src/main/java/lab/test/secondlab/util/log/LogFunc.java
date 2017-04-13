@@ -9,4 +9,7 @@ package lab.test.secondlab.util.log;
  */
 public class LogFunc {
 
+    double calc(int base, double x) {
+        return 0;
+    }
 }
