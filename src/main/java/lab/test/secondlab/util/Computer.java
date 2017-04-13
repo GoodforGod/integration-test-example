@@ -11,6 +11,8 @@ import java.util.Random;
  */
 public class Computer {
 
+    public static final double DELTA = 0.0005;
+
     public static double randomBetween(double from, double to) {
         return from + (to - from) * new Random().nextDouble();
     }

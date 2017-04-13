@@ -31,7 +31,7 @@ public class TrigoFuncs {
         return result;
     }
 
-    public static double ces(double x) {
+    public static double sec(double x) {
         return 1/cos(x);
     }
 

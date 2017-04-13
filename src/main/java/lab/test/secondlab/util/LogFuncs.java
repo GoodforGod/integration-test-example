@@ -9,7 +9,18 @@ package lab.test.secondlab.util;
  */
 public class LogFuncs {
 
+    public static final int STEP = 5;
+
     public static double log(int base, double x) {
-        return 0;
+        return log(x)/log(base);
+    }
+
+    public static double log(double x) {
+        double result = 0;
+
+        for(int i = 1; i <= STEP * 4; i += 2)
+            result += (-Math.pow(-1, i) * Math.pow(-1 + x, i)) / i;
+
+        return -result;
     }
 }
