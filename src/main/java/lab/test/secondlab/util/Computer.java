@@ -9,13 +9,13 @@ import java.util.Random;
 /**
  * Default Comment
  */
-public class ComputeResolver {
+public class Computer {
 
-    public static double getRandomBetween(double from, double to) {
+    public static double randomBetween(double from, double to) {
         return from + (to - from) * new Random().nextDouble();
     }
 
-    public static long computeFactorial(long value) {
+    public static long factorial(long value) {
         long result = 1;
 
         for(long i = 1; i <= value; i++)
