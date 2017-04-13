@@ -38,4 +38,8 @@ public class TrigoFuncs {
     public static double tan(double x) {
         return sin(x)/cos(x);
     }
+
+    public static double csc(double x) {
+        return 1/sin(x);
+    }
 }
