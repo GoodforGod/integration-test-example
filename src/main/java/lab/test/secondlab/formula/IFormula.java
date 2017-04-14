@@ -8,7 +8,5 @@ package lab.test.secondlab.formula;
  * Default Comment
  */
 public interface IFormula {
-
     double calc(double x);
-
 }

@@ -4,11 +4,12 @@ package lab.test.secondlab.formula;
  * Created by @GoodforGod on 14.04.2017.
  */
 
-import lab.test.secondlab.func.MathFuncs;
+import static lab.test.secondlab.func.MathFuncs.*;
 
 /**
  * Default Comment
  */
+// x > 0 : (((((log_5(x) - log_10(x)) - log_2(x)) ^ 3) - log_5(x)) / log_5(x))
 public class SecondFormula implements IFormula{
 
     private final double MIN = 0;
@@ -20,21 +21,21 @@ public class SecondFormula implements IFormula{
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)
     public double numerator(double x) {
-        return firstAndSecondNumerator(x) - thirdNumerator(x) - MathFuncs.log(x, 5);
+        return firstAndSecondNumerator(x) - thirdNumerator(x) - log(x, 5);
     }
 
     // (log5(x)−log10(x)
     public double firstAndSecondNumerator(double x) {
-        return MathFuncs.log(x, 5) - MathFuncs.log(x, 10);
+        return log(x, 5) - log(x, 10);
     }
 
     // log2(x))3
     public double thirdNumerator(double x) {
-        return Math.pow(MathFuncs.log(x, 2), 3);
+        return Math.pow(log(x, 2), 3);
     }
 
     // log5(x)
     public double denumerator(double x) {
-        return MathFuncs.log(x, 5);
+        return log(x, 5);
     }
 }
