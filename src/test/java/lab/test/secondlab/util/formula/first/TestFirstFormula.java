@@ -1,4 +1,4 @@
-package lab.test.secondlab.util.formula;
+package lab.test.secondlab.util.formula.first;
 
 /*
  * Created by @GoodforGod on 14.04.2017.
@@ -7,6 +7,6 @@ package lab.test.secondlab.util.formula;
 /**
  * Default Comment
  */
-public class TestSecondFormula {
+public class TestFirstFormula {
 
 }

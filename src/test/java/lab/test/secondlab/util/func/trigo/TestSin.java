@@ -1,4 +1,4 @@
-package lab.test.secondlab.util.func;
+package lab.test.secondlab.util.func.trigo;
 
 /*
  * Created by @GoodforGod on 13.04.2017.
@@ -12,7 +12,7 @@ import org.junit.Test;
 /**
  * Default Comment
  */
-public class TestTrigoFuncs {
+public class TestSin {
 
     private final static double DELTA = 0.0005;
 

@@ -7,7 +7,7 @@ package lab.test.secondlab.util;
 import java.util.Random;
 
 /**
- * Default Comment
+ * Common functions, like random double, and factorial and etc
  */
 public class Computer {
 
