@@ -64,7 +64,7 @@ public class MathFuncs {
     }
 
     public static double secStandard(double x) {
-        return 1.0/ Math.cos(x);
+        return 1.0 / Math.cos(x);
     }
 
     public static double cscStandard(double x) {

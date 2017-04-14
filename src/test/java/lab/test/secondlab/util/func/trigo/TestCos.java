@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 public class TestCos {
 
-    private final static double DELTA = 0.0005;
+    private final static double DELTA = 0.005;
 
     private final static double MIN = 0;
     private final static double MAX = 1;
@@ -46,17 +46,17 @@ public class TestCos {
     public void testZeroPoint() {
         PIType type = PIType.ZERO;
         double value = type.getValue();
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                            MathFuncs.cos(type.getValue() + value),
-                            DELTA);
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
+                DELTA);
     }
 
     @Test
     public void testZeroPointAndDeltaPos() {
         PIType type = PIType.ZERO;
         double value = type.getValue() + SOURCE.get(type);
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -64,8 +64,8 @@ public class TestCos {
     public void testZeroPointAndDeltaNeg() {
         PIType type = PIType.ZERO;
         double value = -(type.getValue() + SOURCE.get(type));
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
     //</editor-fold>
@@ -75,8 +75,8 @@ public class TestCos {
     public void testHalfPiPoint() {
         PIType type = PIType.HALF_PI;
         double value = type.getValue();
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -84,8 +84,8 @@ public class TestCos {
     public void testHalfPiPointAndDeltaPos() {
         PIType type = PIType.HALF_PI;
         double value = type.getValue() + SOURCE.get(type);
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -93,8 +93,8 @@ public class TestCos {
     public void testHalfPiPointAndDeltaNeg() {
         PIType type = PIType.HALF_PI;
         double value = -(type.getValue() + SOURCE.get(type));
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
     //</editor-fold>
@@ -104,8 +104,8 @@ public class TestCos {
     public void testPiPoint() {
         PIType type = PIType.PI;
         double value = type.getValue();
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -113,8 +113,8 @@ public class TestCos {
     public void testPiPointAndDeltaPos() {
         PIType type = PIType.PI;
         double value = type.getValue() + SOURCE.get(type);
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -122,8 +122,8 @@ public class TestCos {
     public void testPiPointAndDeltaNeg() {
         PIType type = PIType.PI;
         double value = -(type.getValue() + SOURCE.get(type));
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
     //</editor-fold>
@@ -133,8 +133,8 @@ public class TestCos {
     public void testPiAndAHalfPoint() {
         PIType type = PIType.PI_AND_HALF;
         double value = type.getValue();
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -142,8 +142,8 @@ public class TestCos {
     public void testPiAndAHalfPointAndDeltaPos() {
         PIType type = PIType.PI_AND_HALF;
         double value = type.getValue() + SOURCE.get(type);
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -151,8 +151,8 @@ public class TestCos {
     public void testPiAndAHalfPointAndDeltaNeg() {
         PIType type = PIType.PI_AND_HALF;
         double value = -(type.getValue() + SOURCE.get(type));
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
     //</editor-fold>
@@ -162,8 +162,8 @@ public class TestCos {
     public void testTwoPiPoint() {
         PIType type = PIType.DOUBLE_PI;
         double value = type.getValue();
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -171,8 +171,8 @@ public class TestCos {
     public void testTwoPiPointAndDeltaPos() {
         PIType type = PIType.DOUBLE_PI;
         double value = type.getValue() + SOURCE.get(type);
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
 
@@ -180,8 +180,8 @@ public class TestCos {
     public void testTwoPiPointAndDeltaNeg() {
         PIType type = PIType.DOUBLE_PI;
         double value = -(type.getValue() + SOURCE.get(type));
-        Assert.assertEquals(MathFuncs.cosStandard(type.getValue() + value),
-                MathFuncs.cos(type.getValue() + value),
+        Assert.assertEquals(MathFuncs.cosStandard(value),
+                MathFuncs.cos(value),
                 DELTA);
     }
     //</editor-fold>
