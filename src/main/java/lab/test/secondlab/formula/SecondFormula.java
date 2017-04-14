@@ -17,26 +17,26 @@ public class SecondFormula implements IFormula{
 
     @Override
     public double calc(double x) {
-        return (x > MIN) ? numerator(x) / denumerator(x) : Double.NaN;
+        return (x > MIN) ? numerator(x) / denominator(x) : Double.NaN;
     }
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)
-    public double numerator(double x) {
+    private double numerator(double x) {
         return firstAndSecondNumerator(x) - thirdNumerator(x) - log(x, 5);
     }
 
     // (log5(x)−log10(x)
-    public double firstAndSecondNumerator(double x) {
+    private double firstAndSecondNumerator(double x) {
         return log(x, 5) - log(x, 10);
     }
 
     // log2(x))3
-    public double thirdNumerator(double x) {
+    private double thirdNumerator(double x) {
         return pow(log(x, 2), 3);
     }
 
     // log5(x)
-    public double denumerator(double x) {
+    private double denominator(double x) {
         return log(x, 5);
     }
 }
