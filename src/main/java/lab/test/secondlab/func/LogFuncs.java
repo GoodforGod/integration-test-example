@@ -9,18 +9,40 @@ package lab.test.secondlab.func;
  */
 public class LogFuncs {
 
-    public final int STEP = 15;
+    public final double ACCURACY = 0.001;
+    private static boolean isStub = false;
 
     public double log(double x, int base) {
+        if (isStub) { return logStub(x); }
+
         return ln(x) / ln(base);
     }
 
     public double ln(double x) {
-        double result = 0;
+        if (isStub) { return lnStub(x); }
 
-        for(int i = 1; i <= STEP; i += 1)
-            result += Math.pow(-1, i) * Math.pow(x - 1, i) / i;
+        double y = 0;
+        double d = 1;
+        double term = 0;
 
-        return -result;
+        if (x > 0) {
+            for (int n = 0 ; d > ACCURACY ; n++) {
+                d = y;
+
+                term = 2.0 / (2.0 * n + 1) * Math.pow(((x - 1.0) / (x + 1.0)), 2 * n + 1);
+                y += term;
+                d = Math.abs(y - d);
+            }
+            return y;
+        } else
+            return Double.NaN;
+    }
+
+    private double logStub(double x) {
+        return 1;
+    }
+
+    private double lnStub(double x) {
+        return 1;
     }
 }
