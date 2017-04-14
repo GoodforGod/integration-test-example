@@ -41,4 +41,8 @@ public class MathFuncs {
         return logFuncs.ln(x);
     }
 
+    public static double pow(double x, double power) {
+        return Math.pow(x, power);
+    }
+
 }
