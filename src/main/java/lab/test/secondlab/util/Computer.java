@@ -4,7 +4,6 @@ package lab.test.secondlab.util;
  * Created by @GoodforGod on 13.04.2017.
  */
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

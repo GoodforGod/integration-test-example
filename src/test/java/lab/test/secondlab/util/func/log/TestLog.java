@@ -26,6 +26,6 @@ public class TestLog {
     public void randomValueLogTest() {
         double value = Computer.randomDouble(MIN, MAX);
         int base = (int)Computer.randomDouble(BASE_MIN, BASE_MAX);
-        Assert.assertEquals(Math.log(value) / Math.log(base), MathFuncs.log(value, base), DELTA);
+        Assert.assertEquals(MathFuncs.logStandard(value, base), MathFuncs.log(value, base), DELTA);
     }
 }
