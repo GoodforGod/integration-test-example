@@ -9,9 +9,9 @@ package lab.test.secondlab.util;
  */
 public class TrigoFuncs {
 
-    private final static int STEP = 5;
+    private final int STEP = 5;
 
-    public static double sin(double x) {
+    public double sin(double x) {
         double result = 0;
         int mark = -1;
 
@@ -21,7 +21,7 @@ public class TrigoFuncs {
         return result;
     }
 
-    public static double cos(double x) {
+    public double cos(double x) {
         double result = 0;
         int mark = -1;
 
@@ -31,15 +31,15 @@ public class TrigoFuncs {
         return result;
     }
 
-    public static double sec(double x) {
+    public double sec(double x) {
         return 1/cos(x);
     }
 
-    public static double tan(double x) {
+    public double tan(double x) {
         return sin(x)/cos(x);
     }
 
-    public static double csc(double x) {
+    public double csc(double x) {
         return 1/sin(x);
     }
 }

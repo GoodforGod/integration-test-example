@@ -14,13 +14,22 @@ public class TestLogFuncs {
 
     private final static double DELTA = 0.0005;
 
-    private final static double FROM = 1;
-    private final static double TO = 22;
+    private final static double FROM = 3;
+    private final static double TO = 160;
+
+    private final static double BASE_FROM = 2;
+    private final static double BASE_TO = 10;
 
     @Test
-    public void randomValueCscTest() {
+    public void randomValueLnTest() {
         double value = Computer.randomBetween(FROM, TO);
-        int base = (int)Computer.randomBetween(2, 8);
-        Assert.assertEquals(LogFuncs.log(base, value), Math.log(value) / Math.log(base), DELTA);
+        Assert.assertEquals(MathFuncs.ln(value), Math.log(value), DELTA);
+    }
+
+    @Test
+    public void randomValueLogTest() {
+        double value = Computer.randomBetween(FROM, TO);
+        int base = (int)Computer.randomBetween(BASE_FROM, BASE_TO);
+        Assert.assertEquals(MathFuncs.log(value, base), Math.log(value) / Math.log(base), DELTA);
     }
 }

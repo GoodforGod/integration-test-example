@@ -20,31 +20,31 @@ public class TestTrigoFuncs {
     @Test
     public void randomValueCosTest() {
         double value = Computer.randomBetween(FROM, TO);
-        Assert.assertEquals(TrigoFuncs.cos(value), Math.cos(value), DELTA);
+        Assert.assertEquals(MathFuncs.cos(value), Math.cos(value), DELTA);
     }
 
     @Test
     public void randomValueSinTest() {
         double value = Computer.randomBetween(FROM, TO);
-        Assert.assertEquals(TrigoFuncs.sin(value), Math.sin(value), DELTA);
+        Assert.assertEquals(MathFuncs.sin(value), Math.sin(value), DELTA);
     }
 
     @Test
     public void randomValueTanTest() {
         double value = Computer.randomBetween(FROM, TO);
-        Assert.assertEquals(TrigoFuncs.tan(value), Math.tan(value), DELTA);
+        Assert.assertEquals(MathFuncs.tan(value), Math.tan(value), DELTA);
     }
 
 
     @Test
     public void randomValueSecTest() {
         double value = Computer.randomBetween(FROM, TO);
-        Assert.assertEquals(TrigoFuncs.sec(value), 1.0/ Math.cos(value), DELTA);
+        Assert.assertEquals(MathFuncs.sec(value), 1.0/ Math.cos(value), DELTA);
     }
 
     @Test
     public void randomValueCscTest() {
         double value = Computer.randomBetween(FROM, TO);
-        Assert.assertEquals(TrigoFuncs.csc(value), 1.0 / Math.sin(value), DELTA);
+        Assert.assertEquals(MathFuncs.csc(value), 1.0 / Math.sin(value), DELTA);
     }
 }
