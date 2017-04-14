@@ -23,12 +23,6 @@ public class TestLog {
     private final static double BASE_MAX = 10;
 
     @Test
-    public void randomValueLnTest() {
-        double value = Computer.randomBetween(MIN, MAX);
-        Assert.assertEquals(MathFuncs.ln(value), Math.log(value), DELTA);
-    }
-
-    @Test
     public void randomValueLogTest() {
         double value = Computer.randomBetween(MIN, MAX);
         int base = (int)Computer.randomBetween(BASE_MIN, BASE_MAX);
