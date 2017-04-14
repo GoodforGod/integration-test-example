@@ -1,17 +1,17 @@
-package lab.test.secondlab.formula;
+package lab.test.secondlab.formula.standard;
 
 /*
  * Created by @GoodforGod on 14.04.2017.
  */
 
-import static lab.test.secondlab.func.MathFuncs.*;
+import lab.test.secondlab.formula.IFormula;
 
 /**
- * Our implementation
+ * Formula calculated with Java Math package, is the ideal to pursue
  *
  * FORMULA  x > 0 : (((((log_5(x) - log_10(x)) - log_2(x)) ^ 3) - log_5(x)) / log_5(x))
  */
-public class SecondFormula implements IFormula{
+public class SecondFormulaStandard implements IFormula {
 
     private final double MIN = 0;
 
@@ -22,21 +22,21 @@ public class SecondFormula implements IFormula{
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)
     public double numerator(double x) {
-        return firstAndSecondNumerator(x) - thirdNumerator(x) - log(x, 5);
+        return firstAndSecondNumerator(x) - thirdNumerator(x) - Math.log(x) / Math.log(5);
     }
 
     // (log5(x)−log10(x)
     public double firstAndSecondNumerator(double x) {
-        return log(x, 5) - log(x, 10);
+        return Math.log(x) / Math.log(5) - Math.log(x) / Math.log(10);
     }
 
     // log2(x))3
     public double thirdNumerator(double x) {
-        return pow(log(x, 2), 3);
+        return Math.pow(Math.log(x) / Math.log(2), 3);
     }
 
     // log5(x)
     public double denumerator(double x) {
-        return log(x, 5);
+        return Math.log(x) / Math.log(5);
     }
 }

@@ -1,10 +1,11 @@
-package lab.test.secondlab.util;
+package lab.test.secondlab.util.func;
 
 /*
  * Created by @GoodforGod on 13.04.2017.
  */
 
 import lab.test.secondlab.func.MathFuncs;
+import lab.test.secondlab.util.Computer;
 import org.junit.Assert;
 import org.junit.Test;
 

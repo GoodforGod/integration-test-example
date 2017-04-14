@@ -7,9 +7,10 @@ package lab.test.secondlab.formula;
 import static lab.test.secondlab.func.MathFuncs.*;
 
 /**
- * Default Comment
+ * Our implementation
+ *
+ * FORMULA  x <= 0 : (((((csc(x) - tan(x)) - cos(x)) * tan(x)) - tan(x)) + (csc(x) + (tan(x) - (tan(x) * sec(x)))))
  */
-// x <= 0 : (((((csc(x) - tan(x)) - cos(x)) * tan(x)) - tan(x)) + (csc(x) + (tan(x) - (tan(x) * sec(x)))))
 public class FirstFormula implements IFormula {
 
     private final double MIN = 0;
