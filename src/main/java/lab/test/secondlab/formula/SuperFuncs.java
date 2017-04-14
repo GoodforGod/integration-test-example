@@ -1,4 +1,4 @@
-package lab.test.secondlab.func;
+package lab.test.secondlab.formula;
 
 /*
  * Created by @GoodforGod on 14.04.2017.

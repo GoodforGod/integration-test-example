@@ -1,8 +1,10 @@
-package lab.test.secondlab.util;
+package lab.test.secondlab.func;
 
 /*
  * Created by @GoodforGod on 14.04.2017.
  */
+
+import lab.test.secondlab.util.Computer;
 
 /**
  * Default Comment

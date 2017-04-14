@@ -4,6 +4,7 @@ package lab.test.secondlab.util;
  * Created by @GoodforGod on 13.04.2017.
  */
 
+import lab.test.secondlab.func.MathFuncs;
 import org.junit.Assert;
 import org.junit.Test;
 

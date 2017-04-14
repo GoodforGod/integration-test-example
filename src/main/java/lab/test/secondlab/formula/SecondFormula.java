@@ -1,10 +1,10 @@
-package lab.test.secondlab.func;
+package lab.test.secondlab.formula;
 
 /*
  * Created by @GoodforGod on 14.04.2017.
  */
 
-import lab.test.secondlab.util.MathFuncs;
+import lab.test.secondlab.func.MathFuncs;
 
 /**
  * Default Comment
