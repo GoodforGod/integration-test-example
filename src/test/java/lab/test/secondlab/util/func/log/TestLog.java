@@ -24,8 +24,8 @@ public class TestLog {
 
     @Test
     public void randomValueLogTest() {
-        double value = Computer.randomBetween(MIN, MAX);
-        int base = (int)Computer.randomBetween(BASE_MIN, BASE_MAX);
-        Assert.assertEquals(MathFuncs.log(value, base), Math.log(value) / Math.log(base), DELTA);
+        double value = Computer.randomDouble(MIN, MAX);
+        int base = (int)Computer.randomDouble(BASE_MIN, BASE_MAX);
+        Assert.assertEquals(Math.log(value) / Math.log(base), MathFuncs.log(value, base), DELTA);
     }
 }

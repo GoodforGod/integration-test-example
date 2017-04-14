@@ -20,7 +20,7 @@ public class TestLn {
 
     @Test
     public void randomValueLnTest() {
-        double value = Computer.randomBetween(MIN, MAX);
-        Assert.assertEquals(MathFuncs.ln(value), Math.log(value), DELTA);
+        double value = Computer.randomDouble(MIN, MAX);
+        Assert.assertEquals(Math.log(value), MathFuncs.ln(value), DELTA);
     }
 }

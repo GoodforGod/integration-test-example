@@ -5,6 +5,7 @@ package lab.test.secondlab.util;
  */
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Common functions, like random double, and factorial and etc
@@ -13,8 +14,20 @@ public class Computer {
 
     public static final double DELTA = 0.0005;
 
-    public static double randomBetween(double from, double to) {
-        return from + (to - from) * new Random().nextDouble();
+//    public static double randomBetween(double from, double to) {
+//        return from + (to - from) * RANDOM_GEN.nextDouble();
+//    }
+
+    public static double randomDouble() {
+        return ThreadLocalRandom.current().nextDouble();
+    }
+
+    public static double randomDouble(double max) {
+        return ThreadLocalRandom.current().nextDouble() * max;
+    }
+
+    public static double randomDouble(double from, double to) {
+        return from + (to - from) * ThreadLocalRandom.current().nextDouble() ;
     }
 
     public static long factorial(long value) {

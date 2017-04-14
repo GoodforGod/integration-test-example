@@ -21,7 +21,7 @@ public class TestSin {
 
     @Test
     public void randomValueSinTest() {
-        double value = Computer.randomBetween(MIN, MAX);
-        Assert.assertEquals(MathFuncs.sin(value), Math.sin(value), DELTA);
+        double value = Computer.randomDouble(MIN, MAX);
+        Assert.assertEquals(Math.sin(value), MathFuncs.sin(value), DELTA);
     }
 }
