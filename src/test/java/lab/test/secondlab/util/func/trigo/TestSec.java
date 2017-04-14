@@ -21,7 +21,7 @@ public class TestSec {
 
     @Test
     public void randomValueSecTest() {
-        double value = Computer.randomDouble(MIN, MAX);
-        Assert.assertEquals(1.0/ Math.cos(value), MathFuncs.sec(value), DELTA);
+        double x = Computer.randomDouble(MIN, MAX);
+        Assert.assertEquals(MathFuncs.secStandard(x), MathFuncs.sec(x), DELTA);
     }
 }

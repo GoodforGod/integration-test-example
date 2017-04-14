@@ -5,6 +5,7 @@ package lab.test.secondlab.formula.standard;
  */
 
 import lab.test.secondlab.formula.IFormula;
+import lab.test.secondlab.func.MathFuncs;
 
 /**
  * Formula calculated with Java Math package, is the ideal to pursue
@@ -22,21 +23,21 @@ public class SecondFormulaStandard implements IFormula {
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)
     public double numerator(double x) {
-        return firstAndSecondNumerator(x) - thirdNumerator(x) - Math.log(x) / Math.log(5);
+        return firstAndSecondNumerator(x) - thirdNumerator(x) - MathFuncs.logStandard(x, 5);
     }
 
     // (log5(x)−log10(x)
     public double firstAndSecondNumerator(double x) {
-        return Math.log(x) / Math.log(5) - Math.log(x) / Math.log(10);
+        return MathFuncs.logStandard(x, 5) - MathFuncs.logStandard(x, 10);
     }
 
     // log2(x))3
     public double thirdNumerator(double x) {
-        return Math.pow(Math.log(x) / Math.log(2), 3);
+        return MathFuncs.powStandard(MathFuncs.logStandard(x, 2), 3);
     }
 
     // log5(x)
     public double denumerator(double x) {
-        return Math.log(x) / Math.log(5);
+        return MathFuncs.logStandard(x, 5);
     }
 }

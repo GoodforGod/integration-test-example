@@ -21,7 +21,7 @@ public class TestTan {
 
     @Test
     public void randomValueTanTest() {
-        double value = Computer.randomDouble(MIN, MAX);
-        Assert.assertEquals(Math.tan(value), MathFuncs.tan(value), DELTA);
+        double x = Computer.randomDouble(MIN, MAX);
+        Assert.assertEquals(MathFuncs.tanStandard(x), MathFuncs.tan(x), DELTA);
     }
 }

@@ -21,7 +21,7 @@ public class TestCsc {
 
     @Test
     public void randomValueCscTest() {
-        double value = Computer.randomDouble(MIN, MAX);
-        Assert.assertEquals(1.0 / Math.sin(value), MathFuncs.csc(value), DELTA);
+        double x = Computer.randomDouble(MIN, MAX);
+        Assert.assertEquals(MathFuncs.cscStandard(x), MathFuncs.csc(x), DELTA);
     }
 }
