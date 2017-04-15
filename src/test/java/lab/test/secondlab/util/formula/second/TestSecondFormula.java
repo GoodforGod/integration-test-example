@@ -5,14 +5,16 @@ package lab.test.secondlab.util.formula.second;
  */
 
 import lab.test.secondlab.formula.SecondFormula;
-import lab.test.secondlab.formula.IFormula;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * Default Comment
+ *
+ *
  */
 public class TestSecondFormula {
+
     @Test
     public void secondFormulaFirstSectionTest() {
         double x = 0.5;

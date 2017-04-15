@@ -17,7 +17,7 @@ public class FirstFormula implements IFormula {
 
     @Override
     public double calc(double x) {
-        return (x <= 0) ? firstPart(x) + secondPart(x) : Double.NaN;
+        return (x <= MIN) ? firstPart(x) + secondPart(x) : Double.NaN;
     }
 
     // firstTerm(x) − tan(x)
