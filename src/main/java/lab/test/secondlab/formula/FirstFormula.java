@@ -4,6 +4,8 @@ package lab.test.secondlab.formula;
  * Created by @GoodforGod on 14.04.2017.
  */
 
+import lab.test.secondlab.util.PIType;
+
 import static lab.test.secondlab.func.MathFuncs.*;
 
 /**

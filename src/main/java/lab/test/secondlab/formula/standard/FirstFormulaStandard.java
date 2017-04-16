@@ -5,7 +5,8 @@ package lab.test.secondlab.formula.standard;
  */
 
 import lab.test.secondlab.formula.IFormula;
-import lab.test.secondlab.func.MathFuncs;
+
+import static lab.test.secondlab.func.MathFuncs.*;
 
 /**
  * Formula calculated with Java Math package, is the ideal to pursue
@@ -22,27 +23,27 @@ public class FirstFormulaStandard implements IFormula {
     }
 
     // firstTerm(x) − tan(x)
-    public double firstPart(double x) {
-        return firstTerm(x) - MathFuncs.tanStandard(x);
+    public double firstPart(double x){
+        return firstTerm(x) - tanStandard(x);
     }
 
     // firstTermFirstPart(x) * tan(x)
     public double firstTerm(double x) {
-        return firstTermFirstPart(x) * MathFuncs.tanStandard(x);
+        return firstTermFirstPart(x) * tanStandard(x);
     }
 
     // ((csc(x)−tan(x))−cos(x)
     public double firstTermFirstPart(double x) {
-        return MathFuncs.cscStandard(x) - MathFuncs.tanStandard(x) - MathFuncs.cosStandard(x);
+        return cscStandard(x) - tanStandard(x) - cosStandard(x);
     }
 
     // csc(x)+(tan(x)− secondTermsPart(x)
     public double secondPart(double x) {
-        return MathFuncs.cscStandard(x) + (MathFuncs.tanStandard(x) - secondTermsPart(x));
+        return cscStandard(x) + (tanStandard(x) - secondTermsPart(x));
     }
 
     // tan(x)⋅sec(x)
     public double secondTermsPart(double x) {
-        return MathFuncs.tanStandard(x) * MathFuncs.secStandard(x);
+        return tanStandard(x) * secStandard(x);
     }
 }
