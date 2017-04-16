@@ -9,7 +9,7 @@ package lab.test.secondlab.func;
  */
 public class MathFuncs {
 
-    private static final LogFuncs logFuncs = new LogFuncs();
+    private static final LogFuncs logFuncs = new LogFuncs(1E-10);
 
     private static final TrigoFuncs trigoFuncs = new TrigoFuncs();
 

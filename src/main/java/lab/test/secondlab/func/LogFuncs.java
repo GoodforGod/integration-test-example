@@ -9,8 +9,12 @@ package lab.test.secondlab.func;
  */
 public class LogFuncs {
 
-    public final double ACCURACY = 0.001;
+    private final double ACCURACY;
     private static boolean isStub = false;
+
+    public LogFuncs(double accuracy) {
+        ACCURACY = accuracy;
+    }
 
     public double log(double x, int base) {
         if (isStub) { return logStub(x); }
