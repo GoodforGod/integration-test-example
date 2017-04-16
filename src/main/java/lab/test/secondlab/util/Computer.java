@@ -22,11 +22,11 @@ public class Computer {
     }
 
     public static double randomDouble(double max) {
-        return ThreadLocalRandom.current().nextDouble() * max;
+        return randomDouble() * max;
     }
 
     public static double randomDouble(double from, double to) {
-        return from + (to - from) * ThreadLocalRandom.current().nextDouble() ;
+        return from + (to - from) * randomDouble() ;
     }
 
     public static long factorial(long value) {

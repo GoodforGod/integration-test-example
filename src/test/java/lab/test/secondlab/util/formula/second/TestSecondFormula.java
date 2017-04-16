@@ -30,6 +30,6 @@ public class TestSecondFormula {
     @Test
     public void secondFormulaThirdSectionTest() {
         double x = 1.85;
-        Assert.assertEquals(-2.20586, new SecondFormula().calc(x)-2.53, DELTA);
+        Assert.assertEquals(-2.20586, new SecondFormula().calc(x), DELTA);
     }
 }
