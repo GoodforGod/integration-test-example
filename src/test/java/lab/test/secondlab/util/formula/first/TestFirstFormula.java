@@ -22,7 +22,8 @@ import java.util.HashMap;
  */
 public class TestFirstFormula {
 
-    private final static double DELTA_RANDOM    = 5E-6;
+    private final static double DELTA_RANDOM        = 5E-4;
+    private final static double DELTA_SMALL_RANDOM  = 5E-5;
 
     private final static double DELTA           = 5E-5;
     private final static double DELTA_MEDIUM    = 2E-2;
@@ -41,7 +42,7 @@ public class TestFirstFormula {
     @BeforeClass
     public static void generateValues() {
         SOURCE.put(PIType.PI_AND_HALF_NEG,      Computer.randomDouble(DELTA_RANDOM));
-        SOURCE.put(PIType.PI_NEG,               Computer.randomDouble(DELTA_RANDOM));
+        SOURCE.put(PIType.PI_NEG,               Computer.randomDouble(DELTA_SMALL_RANDOM));
         SOURCE.put(PIType.HALF_PI_AND_HALF_NEG, Computer.randomDouble(DELTA_RANDOM));
         SOURCE.put(PIType.HALF_PI_NEG,          Computer.randomDouble(DELTA_RANDOM));
         SOURCE.put(PIType.ZERO,                 Computer.randomDouble(DELTA_RANDOM));
@@ -50,7 +51,7 @@ public class TestFirstFormula {
 
     @Test
     public void formulaRandomValueCompareStandard() {
-        double x = Computer.randomDouble(MIN, MAX);
+        double x = Computer.randomDouble(MIN / 10, MAX);
         Assert.assertEquals(formulaStandard.calc(x),
                 formula.calc(x),
                 DELTA_HUGE);
@@ -98,62 +99,63 @@ public class TestFirstFormula {
 
     //<editor-fold desc="-3PI/2">
 
-//    @Test
-//    public void boundaryPiAndHalfNeg() {
-//        PIType type = PIType.PI_AND_HALF_NEG;
-//        double x = type.getValue();
-//        Assert.assertEquals(formulaStandard.calc(x),
-//                formula.calc(x),
-//                DELTA_HUGE);
-//    }
-//
-//    @Test
-//    public void boundaryPiAndHalfNegDeltaPos() {
-//        PIType type = PIType.PI_AND_HALF_NEG;
-//        Double x = type.getValue() + SOURCE.get(type);
-//        Assert.assertEquals((float)formulaStandard.calc(x) / 1,
-//                (float)formula.calc(x) / 1,
-//                DELTA_HIGN);
-//    }
-//
-//    @Test
-//    public void boundaryPiAndHalfNegDeltaNeg() {
-//        PIType type = PIType.PI_AND_HALF_NEG;
-//        double x = type.getValue() - SOURCE.get(type);
-//        Assert.assertEquals(formulaStandard.calc(x),
-//                formula.calc(x),
-//                DELTA_HIGN);
-//    }
+    @Test
+    public void boundaryPiAndHalfNeg() {
+        PIType type = PIType.PI_AND_HALF_NEG;
+        double x = type.getValue();
+        Assert.assertEquals(formulaStandard.calc(x),
+                formula.calc(x),
+                DELTA_HUGE);
+    }
+
+    @Test
+    public void boundaryPiAndHalfNegDeltaPos() {
+        PIType type = PIType.PI_AND_HALF_NEG;
+        Double x = type.getValue() + SOURCE.get(type);
+        Assert.assertEquals((float)formulaStandard.calc(x),
+                (float)formula.calc(x),
+                DELTA_HIGN);
+    }
+
+    @Test
+    public void boundaryPiAndHalfNegDeltaNeg() {
+        PIType type = PIType.PI_AND_HALF_NEG;
+        double x = type.getValue() - SOURCE.get(type);
+        Assert.assertEquals((float)formulaStandard.calc(x),
+                (float)formula.calc(x),
+                DELTA_HIGN);
+    }
     //</editor-fold>
 
     //<editor-fold desc="-PI">
 
-//    @Test
-//    public void boundaryPiNeg() {
-//        PIType type = PIType.PI_NEG;
-//        double x = type.getValue();
-//        Assert.assertEquals(formulaStandard.calc(x),
-//                formula.calc(x),
-//                DELTA_MEDIUM);
-//    }
+    @Test
+    public void boundaryPiNeg() {
+        PIType type = PIType.PI_NEG;
 
-//    @Test
-//    public void boundaryPiNegDeltaPos() {
-//        PIType type = PIType.PI_NEG;
-//        double x = type.getValue() + SOURCE.get(type);
-//        Assert.assertEquals(formulaStandard.calc(x),
-//                formula.calc(x),
-//                DELTA_HUGE * 10);
-//    }
-//
-//    @Test
-//    public void boundaryPiNegDeltaNeg() {
-//        PIType type = PIType.PI_NEG;
-//        double x = type.getValue() - SOURCE.get(type);
-//        Assert.assertEquals(formulaStandard.calc(x),
-//                formula.calc(x),
-//                DELTA_HUGE * 10);
-//    }
+        double x = type.getValue();
+        Assert.assertEquals(formulaStandard.calc(x),
+                formula.calc(x),
+                DELTA_MEDIUM);
+    }
+
+    @Test
+    public void boundaryPiNegDeltaPos() {
+        PIType type = PIType.PI_NEG;
+        double x = type.getValue() + SOURCE.get(type);
+        Assert.assertEquals(formulaStandard.calc(x),
+                formula.calc(x),
+                DELTA_HUGE * 100);
+    }
+
+    @Test
+    public void boundaryPiNegDeltaNeg() {
+        PIType type = PIType.PI_NEG;
+        double x = type.getValue() - SOURCE.get(type);
+        Assert.assertEquals(formulaStandard.calc(x),
+                formula.calc(x),
+                DELTA_HUGE * 100);
+    }
     //</editor-fold>
 
     //<editor-fold desc="-3PI/4">

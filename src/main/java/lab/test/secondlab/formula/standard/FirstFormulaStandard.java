@@ -5,6 +5,7 @@ package lab.test.secondlab.formula.standard;
  */
 
 import lab.test.secondlab.formula.IFormula;
+import lab.test.secondlab.util.PIType;
 
 import static lab.test.secondlab.func.MathFuncs.*;
 
@@ -17,8 +18,14 @@ public class FirstFormulaStandard implements IFormula {
 
     private final double MIN = 0;
 
+    private final double DELTA = 0.0001;
+
     @Override
     public double calc(double x) {
+        if(Math.abs(x % PIType.HALF_PI_AND_HALF_NEG.getValue()) <= DELTA
+                || x % PIType.PI_NEG.getValue() <= DELTA)
+            return Double.NaN;
+
         return (x <= MIN) ? firstPart(x) + secondPart(x) : Double.NaN;
     }
 
