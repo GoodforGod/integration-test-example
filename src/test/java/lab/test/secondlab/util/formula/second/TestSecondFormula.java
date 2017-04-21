@@ -5,6 +5,9 @@ package lab.test.secondlab.util.formula.second;
  */
 
 import lab.test.secondlab.formula.SecondFormula;
+import lab.test.secondlab.util.ReportManager;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,10 +20,25 @@ public class TestSecondFormula {
 
     private static final double DELTA = 0.001;
 
+    public double expected = 0;
+    public double actual = 0;
+    public String testName = "";
+
+    @AfterClass
+    public static void generateReport() {
+        ReportManager.flush();
+    }
+
+    @After
+    public void reportResults() {
+        ReportManager.report(expected, actual, testName);
+    }
+
     @Test
     public void secondFormulaFirstSectionTest() {
-        double x = 0.5;
-        Assert.assertEquals(-2.53, new SecondFormula().calc(x), DELTA);
+        double x = expected = 0.5;
+        testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        Assert.assertEquals(-2.53, actual = new SecondFormula().calc(x), DELTA);
     }
 
     @Test
