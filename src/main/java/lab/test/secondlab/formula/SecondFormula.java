@@ -13,10 +13,13 @@ import static lab.test.secondlab.func.MathFuncs.*;
  */
 public class SecondFormula implements IFormula{
 
+    public static boolean isStub = false;
+
     private final double MIN = 0;
 
     @Override
     public double calc(double x) {
+        if (isStub) return -1.04327;
         return (x > MIN) ? numerator(x) / denominator(x) : Double.NaN;
     }
 
