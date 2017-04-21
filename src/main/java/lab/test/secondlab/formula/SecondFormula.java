@@ -22,17 +22,12 @@ public class SecondFormula implements IFormula{
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)
     private double numerator(double x) {
-        return firstAndSecondNumerator(x) - thirdNumerator(x) - log(x, 5);
+        return firstAndSecondNumerator(x) - log(x, 5);
     }
 
     // (log5(x)−log10(x)
     private double firstAndSecondNumerator(double x) {
-        return log(x, 5) - log(x, 10);
-    }
-
-    // log2(x))3
-    private double thirdNumerator(double x) {
-        return pow(log(x, 2), 3);
+        return pow(((log(x, 5) - log(x, 10)) - log(x, 2)), 3);
     }
 
     // log5(x)
