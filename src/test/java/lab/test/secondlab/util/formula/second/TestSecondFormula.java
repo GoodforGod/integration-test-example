@@ -6,10 +6,7 @@ package lab.test.secondlab.util.formula.second;
 
 import lab.test.secondlab.formula.SecondFormula;
 import lab.test.secondlab.util.ReportManager;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 import java.lang.Double;
 
@@ -24,6 +21,11 @@ public class TestSecondFormula {
     public double actual = 0;
     public String testName = "";
 
+    @BeforeClass
+    public static void setup() {
+        ReportManager.init("secondFormula");
+    }
+
     @AfterClass
     public static void generateReport() {
         ReportManager.flush();
@@ -32,44 +34,49 @@ public class TestSecondFormula {
     @After
     public void reportResults() {
         ReportManager.report(expected, actual, testName);
+        ReportManager.write();
     }
 
     @Test
     public void secondFormulaFirstSectionTest() {
-        double x = expected = 0.5;
+        double x = 0.5;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(-2.53, actual = new SecondFormula().calc(x), DELTA);
+        Assert.assertEquals(expected = -2.53, actual = new SecondFormula().calc(x), DELTA);
     }
 
     @Test
     public void secondFormulaSecondSectionTest() {
         double x = 0.85;
-        Assert.assertEquals(-1.08416, new SecondFormula().calc(x), DELTA);
+        testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        Assert.assertEquals(expected = -1.08416, actual = new SecondFormula().calc(x), DELTA);
     }
 
     @Test
     public void secondFormulaThirdSectionTest() {
         double x = 1.85;
-        Assert.assertEquals(-2.20586, new SecondFormula().calc(x), DELTA);
+        testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        Assert.assertEquals(actual = -2.20586, actual = new SecondFormula().calc(x), DELTA);
     }
 
     @Test
     public void firstBorderPointTest() {
         double x = 0.75;
-        Assert.assertEquals(-1.26370, new SecondFormula().calc(x), DELTA);
+        Assert.assertEquals(expected = -1.26370, actual = new SecondFormula().calc(x), DELTA);
     }
 
     @Test
     public void secondBorderPointTest() {
         double x = 1;
+        testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         double result = new SecondFormula().calc(x);
-        Assert.assertEquals(Double.NaN, result, DELTA);
+        Assert.assertEquals(expected = Double.NaN, actual = result, DELTA);
     }
 
     @Test
     public void thirdBorderPointTest() {
         double x = 1.5;
+        testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         double result = new SecondFormula().calc(x);
-        Assert.assertEquals(-1.52383, result, DELTA);
+        Assert.assertEquals(expected = -1.52383, actual = result, DELTA);
     }
 }

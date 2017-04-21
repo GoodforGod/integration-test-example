@@ -40,7 +40,9 @@ public class TestFirstFormula {
 
     // Generate & Set up
     @BeforeClass
-    public static void generateValues() {
+    public static void setup() {
+        ReportManager.init("firstFormula");
+
         SOURCE.put(PIType.PI_AND_HALF_NEG,      Computer.randomDouble(DELTA_RANDOM_SMALL));
         SOURCE.put(PIType.PI_NEG,               Computer.randomDouble(DELTA_RANDOM_SMALL));
         SOURCE.put(PIType.HALF_PI_AND_HALF_NEG, Computer.randomDouble(DELTA_RANDOM_MEDIUM));
@@ -61,14 +63,15 @@ public class TestFirstFormula {
     @After
     public void reportResults() {
         ReportManager.report(expected, actual, testName);
+        ReportManager.write();
     }
 
     // useless
     @Test
     public void formulaRandomValueCompareStandard() {
-        double x = expected = Computer.randomDouble(MIN / 10, MAX);
+        double x = Computer.randomDouble(MIN / 10, MAX);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_HUGE * 10);
     }
@@ -78,41 +81,41 @@ public class TestFirstFormula {
     // In -3PI/2 to -PI
     @Test
     public void wolfFormulaPiAndHalfToPiNeg() {
-        double x = expected = -3.518583768;
+        double x = -3.518583768;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(0.69023, actual = formula.calc(x), DELTA_HIGN);
+        Assert.assertEquals(expected = 0.69023, actual = formula.calc(x), DELTA_HIGN);
     }
 
     // In -PI tp -3PI/4
     @Test
     public void wolfFormulaPiToPiAndHalfAndHalfNeg() {
-        double x = expected = -2.41660973077;
+        double x = -2.41660973077;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(-1.78215869455722, actual = formula.calc(x), DELTA_HIGN);
+        Assert.assertEquals(expected = -1.78215869455722, actual = formula.calc(x), DELTA_HIGN);
     }
 
     // In -3PI/4 to -PI/2
     @Test
     public void wolfFormulaPiAndHalfAndHalfToHalfPiNeg() {
-        double x = expected = -1.88495559;
+        double x = -1.88495559;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(-2.84902, actual = formula.calc(x), DELTA_HIGN);
+        Assert.assertEquals(expected = -2.84902, actual = formula.calc(x), DELTA_HIGN);
     }
 
     // In -PI/2 to 0
     @Test
     public void wolfFormulaHalfPiToZeroNeg() {
-        double x = expected = -1.04719755;
+        double x = -1.04719755;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(2.17543, actual = formula.calc(x), DELTA_HIGN);
+        Assert.assertEquals(expected = 2.17543, actual = formula.calc(x), DELTA_HIGN);
     }
 
     // In 0 to PI/2
     @Test
     public void wolfFormulaZeroToHalfPi() {
-        double x = expected = 0.95199777272 - Math.PI * 2;
+        double x = 0.95199777272 - Math.PI * 2;
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(-2.2560182862465, actual = formula.calc(x), DELTA_HIGN);
+        Assert.assertEquals(expected = -2.2560182862465, actual = formula.calc(x), DELTA_HIGN);
     }
     //</editor-fold>
 
@@ -121,41 +124,41 @@ public class TestFirstFormula {
     // In -3PI/2 to -PI
     @Test
     public void formulaPiAndHalfToPiNeg() {
-        double x = expected = Computer.randomDouble(PIType.PI_AND_HALF_NEG.getValue(), PIType.PI_NEG.getValue());
+        double x = Computer.randomDouble(PIType.PI_AND_HALF_NEG.getValue(), PIType.PI_NEG.getValue());
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x), actual = formula.calc(x), DELTA_MEDIUM);
+        Assert.assertEquals(expected = formulaStandard.calc(x), actual = formula.calc(x), DELTA_MEDIUM);
     }
 
     // In -PI tp -3PI/4
     @Test
     public void formulaPiToPiAndHalfAndHalfNeg() {
-        double x = expected = Computer.randomDouble(PIType.PI_NEG.getValue(), PIType.HALF_PI_AND_HALF_NEG.getValue());
+        double x = Computer.randomDouble(PIType.PI_NEG.getValue(), PIType.HALF_PI_AND_HALF_NEG.getValue());
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
+        Assert.assertEquals(expected = formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
     }
 
     // In -3PI/4 to -PI/2
     @Test
     public void formulaPiAndHalfAndHalfToHalfPiNeg() {
-        double x = expected = Computer.randomDouble(PIType.HALF_PI_AND_HALF_NEG.getValue(), PIType.HALF_PI_NEG.getValue());
+        double x = Computer.randomDouble(PIType.HALF_PI_AND_HALF_NEG.getValue(), PIType.HALF_PI_NEG.getValue());
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
+        Assert.assertEquals(expected = formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
     }
 
     // In -PI/2 to 0
     @Test
     public void formulaHalfPiToZeroNeg() {
-        double x = expected = Computer.randomDouble(PIType.HALF_PI_NEG.getValue(), PIType.ZERO.getValue());
+        double x = Computer.randomDouble(PIType.HALF_PI_NEG.getValue(), PIType.ZERO.getValue());
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
+        Assert.assertEquals(expected = formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
     }
 
     // In 0 to PI/2
     @Test
     public void formulaZeroToHalfPi() {
-        double x = expected = Computer.randomDouble(PIType.ZERO.getValue(), PIType.HALF_PI.getValue());
+        double x = Computer.randomDouble(PIType.ZERO.getValue(), PIType.HALF_PI.getValue());
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
+        Assert.assertEquals(expected = formulaStandard.calc(x), actual = formula.calc(x), DELTA_SMALL);
     }
     //</editor-fold>
 
@@ -166,9 +169,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiAndHalfNeg() {
         PIType type = PIType.PI_AND_HALF_NEG;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_HUGE * 10);
     }
@@ -185,9 +188,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiAndHalfNegDeltaNeg() {
         PIType type = PIType.PI_AND_HALF_NEG;
-        double x = expected = type.getValue() - SOURCE.get(type);
+        double x = type.getValue() - SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_HUGE);
     }
@@ -198,9 +201,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiNeg() {
         PIType type = PIType.PI_NEG;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_MEDIUM);
     }
@@ -208,19 +211,19 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiNegDeltaPos() {
         PIType type = PIType.PI_NEG;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
-                DELTA_HUGE * 1000);
+                DELTA_HUGE * 100000);
     }
 
     @Test
     public void boundaryPiNegDeltaNeg() {
         PIType type = PIType.PI_NEG;
-        double x = expected = type.getValue() - SOURCE.get(type);
+        double x = type.getValue() - SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_HUGE * 1000);
     }
@@ -231,9 +234,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiAndHalfAndHalfNeg() {
         PIType type = PIType.HALF_PI_AND_HALF_NEG;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -241,9 +244,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiAndHalfAndHalfNegDeltaPos() {
         PIType type = PIType.HALF_PI_AND_HALF_NEG;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -251,9 +254,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryPiAndHalfAndHalfNegDeltaNeg() {
         PIType type = PIType.HALF_PI_AND_HALF_NEG;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -264,9 +267,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiNeg() {
         PIType type = PIType.HALF_PI_NEG;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -274,9 +277,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiNegDeltaPos() {
         PIType type = PIType.HALF_PI_NEG;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_MEDIUM);
     }
@@ -284,9 +287,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiNegDeltaNeg() {
         PIType type = PIType.HALF_PI_NEG;
-        double x = expected = type.getValue() - SOURCE.get(type);
+        double x = type.getValue() - SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_HIGN);
     }
@@ -297,9 +300,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryZero() {
         PIType type = PIType.ZERO;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -307,9 +310,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryZeroDeltaPos() {
         PIType type = PIType.ZERO;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -317,9 +320,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryZeroDeltaNeg() {
         PIType type = PIType.ZERO;
-        double x = expected = type.getValue() - SOURCE.get(type);
+        double x = type.getValue() - SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -330,9 +333,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiPos() {
         PIType type = PIType.HALF_PI;
-        double x = expected = type.getValue();
+        double x = type.getValue();
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -340,9 +343,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiPosDeltaPos() {
         PIType type = PIType.HALF_PI;
-        double x = expected = type.getValue() + SOURCE.get(type);
+        double x = type.getValue() + SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
@@ -350,9 +353,9 @@ public class TestFirstFormula {
     @Test
     public void boundaryHalfPiPosDeltaNeg() {
         PIType type = PIType.HALF_PI;
-        double x = expected = type.getValue() - SOURCE.get(type);
+        double x = type.getValue() - SOURCE.get(type);
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        Assert.assertEquals(formulaStandard.calc(x),
+        Assert.assertEquals(expected = formulaStandard.calc(x),
                 actual = formula.calc(x),
                 DELTA_SMALL);
     }
