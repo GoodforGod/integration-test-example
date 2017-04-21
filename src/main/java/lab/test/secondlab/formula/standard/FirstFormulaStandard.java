@@ -7,6 +7,8 @@ package lab.test.secondlab.formula.standard;
 import lab.test.secondlab.formula.IFormula;
 import lab.test.secondlab.util.PIType;
 
+import java.util.Map;
+
 import static lab.test.secondlab.func.MathFuncs.*;
 
 /**
@@ -17,16 +19,21 @@ import static lab.test.secondlab.func.MathFuncs.*;
 public class FirstFormulaStandard implements IFormula {
 
     private final double MIN = 0;
-
-    private final double DELTA = 0.0001;
+    private static final double DELTA = 0.0001;
 
     @Override
     public double calc(double x) {
-        if(Math.abs(x % PIType.HALF_PI_AND_HALF_NEG.getValue()) <= DELTA
-                || x % PIType.PI_NEG.getValue() <= DELTA)
+        if(exсeptionalConditionCheck(x))
             return Double.NaN;
 
         return (x <= MIN) ? firstPart(x) + secondPart(x) : Double.NaN;
+    }
+
+    // Test special conditions like infinity & undefined
+    public static boolean exсeptionalConditionCheck(double x) {
+        return Math.abs(x % PIType.HALF_PI_AND_HALF_NEG.getValue()) <= DELTA
+                || Math.abs(x % PIType.PI_NEG.getValue()) <= DELTA
+                || Math.abs(x % PIType.PI_AND_HALF_NEG.getValue()) <= DELTA;
     }
 
     // firstTerm(x) − tan(x)
