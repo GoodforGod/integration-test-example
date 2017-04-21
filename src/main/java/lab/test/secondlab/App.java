@@ -27,16 +27,12 @@ public class App {
                 System.out.println("Not a double!");
             }
         }
-        ReportManager.init("firstFormula");
-        FirstFormula ff = new FirstFormula();
-        SecondFormula sf = new SecondFormula();
-        for (double i = N; i < 0; i += STEP)
-            ReportManager.report(i, ff.calc(i));
-        ReportManager.flush();
 
-        ReportManager.init("secondFormula");
-        for (double i = STEP; i < M; i += STEP)
-            ReportManager.report(i, sf.calc(i));
+        ReportManager.init("generalReport");
+        for (double i = N; i < M; i += STEP) {
+            ReportManager.report(i, SuperFuncs.calc(i));
+            ReportManager.write();
+        }
         ReportManager.flush();
 
 //        double x = PIType.PI_AND_HALF_NEG.getValue();

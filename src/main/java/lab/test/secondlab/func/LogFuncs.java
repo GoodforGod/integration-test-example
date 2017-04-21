@@ -10,6 +10,7 @@ package lab.test.secondlab.func;
 public class LogFuncs {
 
     private final double ACCURACY;
+    private final int MAX_STEPS = 300;
     private static boolean isStub = false;
 
     public LogFuncs(double accuracy) {
@@ -29,13 +30,15 @@ public class LogFuncs {
         double d = 1;
         double term = 0;
 
+        int c = 0;
         if (x > 0) {
-            for (int n = 0 ; d > ACCURACY ; n++) {
+            for (int n = 0 ; d > ACCURACY && c < MAX_STEPS; n++) {
                 d = y;
 
                 term = 2.0 / (2.0 * n + 1) * Math.pow(((x - 1.0) / (x + 1.0)), 2 * n + 1);
                 y += term;
                 d = Math.abs(y - d);
+                ++c;
             }
             return y;
         } else

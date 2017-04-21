@@ -11,9 +11,12 @@ import lab.test.secondlab.util.Computer;
  */
 public class TrigoFuncs {
 
+    public static boolean isStub = false;
+
     private final int STEP = 5;
 
     public double sin(double x) {
+        if (isStub) return 0.34;
         double result = 0;
         int mark = -1;
 
@@ -24,6 +27,7 @@ public class TrigoFuncs {
     }
 
     public double cos(double x) {
+        if (isStub) return 0.47;
         double result = 0;
         int mark = -1;
 
