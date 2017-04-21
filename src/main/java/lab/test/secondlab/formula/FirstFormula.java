@@ -4,7 +4,7 @@ package lab.test.secondlab.formula;
  * Created by @GoodforGod on 14.04.2017.
  */
 
-import lab.test.secondlab.util.PIType;
+import lab.test.secondlab.formula.standard.FirstFormulaStandard;
 
 import static lab.test.secondlab.func.MathFuncs.*;
 
@@ -17,12 +17,9 @@ public class FirstFormula implements IFormula {
 
     private final double MIN = 0;
 
-    private final double DELTA = 0.0000001;
-
     @Override
     public double calc(double x) {
-        if(Math.abs(x % PIType.HALF_PI_AND_HALF_NEG.getValue()) <= DELTA
-                || x % PIType.PI_NEG.getValue() <= DELTA)
+        if(FirstFormulaStandard.exсeptionalConditionCheck(x))
             return Double.NaN;
 
         return (x <= MIN) ? firstPart(x) + secondPart(x) : Double.NaN;

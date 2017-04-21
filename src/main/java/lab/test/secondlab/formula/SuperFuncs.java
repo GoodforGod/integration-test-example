@@ -16,11 +16,19 @@ public class SuperFuncs {
     private static final IFormula firstFormula = new FirstFormula();
     private static final IFormula secondFormula = new SecondFormula();
 
-    public static double firstFormula(double x) {
+    public static double calc(double x) {
+        return (x > 0) ? secondFormula(x) : firstFormula(x);
+    }
+
+    public static double calcStandard(double x) {
+        return (x > 0) ? secondFormulaStandard(x) : firstFormulaStandard(x);
+    }
+
+    private static double firstFormula(double x) {
         return firstFormula.calc(x);
     }
 
-    public static double secondFormula(double x) {
+    private static double secondFormula(double x) {
         return secondFormula.calc(x);
     }
 
@@ -29,11 +37,11 @@ public class SuperFuncs {
     private static final IFormula firstFormulaStandard = new FirstFormulaStandard();
     private static final IFormula secondFormulaStandard = new SecondFormulaStandard();
 
-    public static double firstFormulaStandard(double x) {
+    private static double firstFormulaStandard(double x) {
         return firstFormulaStandard.calc(x);
     }
 
-    public static double secondFormulaStandard(double x) {
+    private static double secondFormulaStandard(double x) {
         return secondFormulaStandard.calc(x);
     }
 }
