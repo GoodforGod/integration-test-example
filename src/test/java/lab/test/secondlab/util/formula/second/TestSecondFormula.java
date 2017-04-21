@@ -23,18 +23,24 @@ public class TestSecondFormula {
 
     @BeforeClass
     public static void setup() {
+        /*
         ReportManager.init("secondFormula");
+        */
     }
 
     @AfterClass
     public static void generateReport() {
+        /*
         ReportManager.flush();
+        */
     }
 
     @After
     public void reportResults() {
+        /*
         ReportManager.report(expected, actual, testName);
         ReportManager.write();
+        */
     }
 
     @Test

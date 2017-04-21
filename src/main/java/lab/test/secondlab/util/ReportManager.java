@@ -22,13 +22,12 @@ public class ReportManager {
 
     private static FileWriter writer;
 
-    public static void report(Double expected, Double actual, String testName) {
+    public static void report(Double x, Double y) {
 //        REPORT_TESTNAME.add(testName);
 //        REPORT_EXPECTED.add(String.valueOf(expected));
 //        REPORT_ACTUAL.add(String.valueOf(actual));
-        REPORT.add(testName);
-        REPORT.add(String.valueOf(expected));
-        REPORT.add(String.valueOf(actual));
+        REPORT.add(String.valueOf(x));
+        REPORT.add(String.valueOf(y));
 
     }
 

@@ -1,11 +1,18 @@
 package lab.test.secondlab;
 
+import lab.test.secondlab.formula.FirstFormula;
+import lab.test.secondlab.formula.SecondFormula;
 import lab.test.secondlab.formula.SuperFuncs;
+import lab.test.secondlab.util.ReportManager;
 
 /**
  * Compute!
  */
 public class App {
+    private static final double N = -1.5;
+    private static final double M = 1.5;
+    private static final double STEP = 0.3;
+
     public static void main( String[] args ) {
 
         if(args.length != 1)
@@ -20,6 +27,17 @@ public class App {
                 System.out.println("Not a double!");
             }
         }
+        ReportManager.init("firstFormula");
+        FirstFormula ff = new FirstFormula();
+        SecondFormula sf = new SecondFormula();
+        for (double i = N; i < 0; i += STEP)
+            ReportManager.report(i, ff.calc(i));
+        ReportManager.flush();
+
+        ReportManager.init("secondFormula");
+        for (double i = STEP; i < M; i += STEP)
+            ReportManager.report(i, sf.calc(i));
+        ReportManager.flush();
 
 //        double x = PIType.PI_AND_HALF_NEG.getValue();
 //

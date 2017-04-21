@@ -57,13 +57,17 @@ public class TestFirstFormula {
 
     @AfterClass
     public static void generateReport() {
+        /*
         ReportManager.flush();
+        */
     }
 
     @After
     public void reportResults() {
+        /*
         ReportManager.report(expected, actual, testName);
         ReportManager.write();
+        */
     }
 
     // useless
