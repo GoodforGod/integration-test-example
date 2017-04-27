@@ -16,7 +16,8 @@ public class TrigoFuncs {
     private final int STEP = 5;
 
     public double sin(double x) {
-        if (isStub) return 0.34;
+        if (isStub) return x == -0.5 ? -0.479426 : 0;
+
         double result = 0;
         int mark = -1;
 
@@ -27,7 +28,8 @@ public class TrigoFuncs {
     }
 
     public double cos(double x) {
-        if (isStub) return 0.47;
+        if (isStub) return x == -0.5 ? 0.8775826 : 0;
+
         double result = 0;
         int mark = -1;
 
