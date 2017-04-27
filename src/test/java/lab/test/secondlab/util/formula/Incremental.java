@@ -17,8 +17,8 @@ import static lab.test.secondlab.util.Computer.DELTA;
 public class Incremental {
     private double expected, actual;
 
-    @AfterClass
-    public static void restoreStubs() {
+    @After
+    public void restoreStubs() {
         LogFuncs.isStub = false;
         TrigoFuncs.isStub = false;
         SecondFormula.isStub = false;
@@ -30,7 +30,6 @@ public class Incremental {
         LogFuncs.isStub = true;
         double x = 0.5;
         Assert.assertEquals(expected = -2.53, actual = SuperFuncs.calc(x), DELTA);
-        LogFuncs.isStub = false;
     }
 
     @Test
@@ -38,7 +37,6 @@ public class Incremental {
         SecondFormula.isStub = true;
         double x = 0.5;
         Assert.assertEquals(expected = -2.53, actual = SuperFuncs.calc(x), DELTA);
-        SecondFormula.isStub = false;
     }
 
     @Test
@@ -46,7 +44,6 @@ public class Incremental {
         TrigoFuncs.isStub = true;
         double x = -0.5;
         Assert.assertEquals(expected = -0.142848, actual = SuperFuncs.calc(x), DELTA);
-        TrigoFuncs.isStub = false;
     }
 
     @Test
@@ -54,6 +51,5 @@ public class Incremental {
         FirstFormula.isStub = true;
         double x = -0.5;
         Assert.assertEquals(expected = -0.142848, actual = SuperFuncs.calc(x), DELTA);
-        FirstFormula.isStub = false;
     }
 }

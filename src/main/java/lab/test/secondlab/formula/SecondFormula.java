@@ -19,8 +19,10 @@ public class SecondFormula implements IFormula{
 
     @Override
     public double calc(double x) {
-        if (isStub) return -1.04327;
-        return (x > MIN) ? numerator(x) / denominator(x) : Double.NaN;
+        if (isStub) return -2.53;
+        double numerator = numerator(x);
+        double denominator = denominator(x);
+        return (x > MIN) ? numerator / denominator : Double.NaN;
     }
 
     // firstAndSecondNumerator() - thirdNumerator(x) - log5(x)

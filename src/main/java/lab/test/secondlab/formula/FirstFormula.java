@@ -21,7 +21,7 @@ public class FirstFormula implements IFormula {
 
     @Override
     public double calc(double x) {
-        if (isStub) return -1.38715;
+        if (isStub) return -0.142848;
         if(FirstFormulaStandard.exсeptionalConditionCheck(x))
             return Double.NaN;
 

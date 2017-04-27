@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Computer {
 
-    public static final double DELTA = 0.0005;
+    public static final double DELTA = 0.005;
 
 //    public static double randomBetween(double from, double to) {
 //        return from + (to - from) * RANDOM_GEN.nextDouble();
