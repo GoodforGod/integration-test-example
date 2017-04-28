@@ -24,7 +24,7 @@ public class ThirdLevelTest {
 
     @After
     public void restoreStubs() {
-        LogFuncs.isStub = false;
+        LogFuncs.isFirstStub = false;
         TrigoFuncs.isStub = false;
         SecondFormula.isStub = false;
         FirstFormula.isStub = false;
@@ -32,7 +32,7 @@ public class ThirdLevelTest {
 
     @Test
     public void testLogFunctionsStubs() {
-        LogFuncs.isStub = true;
+        LogFuncs.isSecondStub = true;
         double x = 0.5;
         Assert.assertEquals(expected = -2.53, actual = SuperFuncs.calc(x), DELTA);
     }
