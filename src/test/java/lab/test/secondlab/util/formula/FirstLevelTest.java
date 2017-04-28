@@ -14,7 +14,7 @@ import org.junit.*;
 
 import static lab.test.secondlab.util.Computer.DELTA;
 
-public class Incremental {
+public class FirstLevelTest {
     private double expected, actual;
 
     @After
@@ -26,24 +26,10 @@ public class Incremental {
     }
 
     @Test
-    public void testLogFunctionsStubs() {
-        LogFuncs.isStub = true;
-        double x = 0.5;
-        Assert.assertEquals(expected = -2.53, actual = SuperFuncs.calc(x), DELTA);
-    }
-
-    @Test
     public void testSecondFormulaStub() {
         SecondFormula.isStub = true;
         double x = 0.5;
         Assert.assertEquals(expected = -2.53, actual = SuperFuncs.calc(x), DELTA);
-    }
-
-    @Test
-    public void testTrigFunctionsStubs() {
-        TrigoFuncs.isStub = true;
-        double x = -0.5;
-        Assert.assertEquals(expected = -0.142848, actual = SuperFuncs.calc(x), DELTA);
     }
 
     @Test
@@ -52,4 +38,5 @@ public class Incremental {
         double x = -0.5;
         Assert.assertEquals(expected = -0.142848, actual = SuperFuncs.calc(x), DELTA);
     }
+
 }
