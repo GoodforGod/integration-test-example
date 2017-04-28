@@ -17,4 +17,5 @@ import org.junit.runners.Suite;
         TestSecondFormula.class,
 })
 public class IncrementalSuite {
+
 }

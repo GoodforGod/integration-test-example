@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
@@ -22,9 +23,10 @@ import java.util.HashMap;
 /**
  * Default Comment
  */
+@RunWith(Parameterized.class)
 public class TestIncrementalFirstFormula {
 
-    private final static double DELTA = 3E-5;
+    private final static double DELTA = 3E-1;
 
     private static final FirstStubSource stubSource = new FirstStubSource();
 
@@ -34,9 +36,9 @@ public class TestIncrementalFirstFormula {
     private double actualReported   = 0;
     private String testNameReported = "";
 
-    public TestIncrementalFirstFormula(PIType type, double expected, FormulaValue value) {
+    public TestIncrementalFirstFormula(PIType type, FormulaValue value) {
         this.type = type;
-        this.expectedReported = expected;
+        this.expectedReported = value.getResult();
         this.formulaValue = value;
     }
 
@@ -58,20 +60,12 @@ public class TestIncrementalFirstFormula {
 
     @Test
     public void formulaPiAndHalfToPiNeg() {
-//        Assume.assumeTrue(type == PIType.HALF_PI_AND_HALF_NEG);
-//        PIType type = PIType.PI_AND_HALF_NEG;
-//        double x = stubSource.SOURCE_INTERVAL.get(type).getX();
-//        double result = stubSource.SOURCE_INTERVAL.get(type).getResult();
-
         testNameReported = Thread.currentThread().getStackTrace()[1].getMethodName();
         Assert.assertEquals(expectedReported, actualReported = SuperFuncs.calc(formulaValue.getX()), DELTA);
     }
 
     @Test
     public void boundaryPiAndHalfNeg() {
-//        PIType type = PIType.PI_AND_HALF_NEG;
-//        double x = stubSource.SOURCE_BOUNDARY.get(type).getX();
-//        double result = stubSource.SOURCE_BOUNDARY.get(type).getResult();
         testNameReported = Thread.currentThread().getStackTrace()[1].getMethodName();
         Assert.assertEquals(expectedReported, actualReported = SuperFuncs.calc(formulaValue.getX()), DELTA);
     }
