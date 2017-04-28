@@ -13,6 +13,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         FirstLevelTest.class,
         SecondLevelTest.class,
+        TestIncrementalFirstFormula.class,
         TestFirstFormula.class,
         TestSecondFormula.class,
 })
