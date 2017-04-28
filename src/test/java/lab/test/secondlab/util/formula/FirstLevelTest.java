@@ -19,7 +19,8 @@ public class FirstLevelTest {
 
     @After
     public void restoreStubs() {
-        LogFuncs.isStub = false;
+        LogFuncs.isFirstStub = false;
+        LogFuncs.isSecondStub = false;
         TrigoFuncs.isStub = false;
         SecondFormula.isStub = false;
         FirstFormula.isStub = false;
