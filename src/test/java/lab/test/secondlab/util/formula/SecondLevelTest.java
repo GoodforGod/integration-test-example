@@ -6,6 +6,7 @@ import lab.test.secondlab.formula.SuperFuncs;
 import lab.test.secondlab.func.LogFuncs;
 import lab.test.secondlab.func.TrigoFuncs;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,13 +19,23 @@ public class SecondLevelTest {
 
     private double expected, actual;
 
-    @After
-    public void restoreStubs() {
-        LogFuncs.isFirstStub = false;
+
+    public static void restoreStubs() {
         LogFuncs.isSecondStub = false;
+        LogFuncs.isFirstStub = false;
         TrigoFuncs.isStub = false;
         SecondFormula.isStub = false;
         FirstFormula.isStub = false;
+    }
+
+    @After
+    public void restoreAfterEach() {
+        restoreStubs();
+    }
+
+    @AfterClass
+    public static void restoreFull() {
+        restoreStubs();
     }
 
     @Test
