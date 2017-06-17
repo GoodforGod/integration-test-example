@@ -47,6 +47,7 @@ public class ThirdLevelTest {
         double x = 0.5;
         Assert.assertEquals(expected = -1.3980726649, actual = SuperFuncs.calc(x), DELTA);
     }
+
     @Test
     public void testTrigFunctionsStubs() {
         TrigoFuncs.isStubBasic = true;

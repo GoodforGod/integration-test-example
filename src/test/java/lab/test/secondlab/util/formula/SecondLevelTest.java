@@ -19,7 +19,6 @@ public class SecondLevelTest {
 
     private double expected, actual;
 
-
     public static void restoreStubs() {
         LogFuncs.isSecondStub = false;
         LogFuncs.isFirstStub = false;

@@ -35,7 +35,7 @@ public class TrigoFuncs {
         int mark = -1;
 
         for(int i = 0; i <= STEP * 4; i += 2)
-            result += Math.pow(x, i) / Computer.factorial(i) * (mark = mark == 1 ? -1 : 1);
+            result += Math.pow(x, i) / Computer.factorial(i) * (mark = (mark == 1) ? -1 : 1);
 
         return result;
     }
