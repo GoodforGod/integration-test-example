@@ -1,4 +1,4 @@
-package lab.test.secondlab.util.exam.unit;
+package lab.test.secondlab.util.exam.integration;
 
 import lab.test.secondlab.exam.unit.LowFunc;
 import lab.test.secondlab.exam.unit.SuperFunc;

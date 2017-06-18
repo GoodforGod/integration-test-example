@@ -1,5 +1,6 @@
-package lab.test.secondlab.util.exam.unit;
+package lab.test.secondlab.util.exam.integration;
 
+import lab.test.secondlab.util.exam.unit.SumParamTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
