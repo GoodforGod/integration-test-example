@@ -1,8 +1,7 @@
-package lab.test.secondlab.util.exam;
+package lab.test.secondlab.util.exam.unit;
 
-import lab.test.secondlab.exam.LowFunc;
-import lab.test.secondlab.exam.SuperFunc;
-import org.junit.AfterClass;
+import lab.test.secondlab.exam.unit.LowFunc;
+import lab.test.secondlab.exam.unit.SuperFunc;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

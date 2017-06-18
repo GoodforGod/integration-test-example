@@ -1,4 +1,4 @@
-package lab.test.secondlab.exam;
+package lab.test.secondlab.exam.unit;
 
 /**
  * Default Comment

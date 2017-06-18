@@ -1,4 +1,4 @@
-package lab.test.secondlab.util.exam;
+package lab.test.secondlab.util.exam.unit;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -16,6 +16,6 @@ import org.junit.runners.Suite;
         IntegrationLowTest.class,
         SumParamTest.class
 })
-public class SuiteTest {
+public class UnitSuiteTest {
 
 }

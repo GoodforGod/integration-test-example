@@ -1,4 +1,4 @@
-package lab.test.secondlab.util.exam;
+package lab.test.secondlab.util.exam.unit;
 
 import lab.test.secondlab.func.TrigoFuncs;
 import org.junit.Assert;
