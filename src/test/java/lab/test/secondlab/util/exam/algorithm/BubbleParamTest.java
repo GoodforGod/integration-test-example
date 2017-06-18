@@ -16,13 +16,13 @@ import java.util.Collection;
  * @since 18.06.2017
  */
 @RunWith(Parameterized.class)
-public class BubbleSortTest extends Assert {
+public class BubbleParamTest extends Assert {
 
     private int[] array;
     private int max;
     private int min;
 
-    public BubbleSortTest(int[] array, int max, int min) {
+    public BubbleParamTest(int[] array, int max, int min) {
         this.array = array;
         this.max = max;
         this.min = min;

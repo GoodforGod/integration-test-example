@@ -13,11 +13,17 @@ public class BubbleSort {
 
         for (int i = 0; i < n; i++)
             for (int j = 1; j < (n - i); j++)
-                if (array[j - 1] > array[j])
-                    swap(array, j - 1, j);
+                condition(array, j);
+
     }
 
-    private static void swap(final int[] array, final int i, final int j) {
+    public static void condition(final int[] array, final int j) {
+        if (array[j - 1] > array[j])
+            swap(array, j - 1, j);
+    }
+
+
+    public static void swap(final int[] array, final int i, final int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
