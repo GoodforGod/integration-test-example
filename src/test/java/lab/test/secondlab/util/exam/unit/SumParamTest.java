@@ -2,7 +2,6 @@ package lab.test.secondlab.util.exam.unit;
 
 import lab.test.secondlab.exam.unit.LowFunc;
 import lab.test.secondlab.exam.unit.SuperFunc;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,8 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Default Comment
  *
@@ -18,7 +19,7 @@ import java.util.Collection;
  * @since 17.06.2017
  */
 @RunWith(Parameterized.class)
-public class SumParamTest extends Assert {
+public class SumParamTest {
 
     private int x;
     private int y;
