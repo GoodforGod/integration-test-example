@@ -143,6 +143,17 @@ GROUP BY guestName, guestAddress
 ORDER BY guestName;
 
 
+SELECT exam.guests.guestName, exam.guests.guestAddress
+FROM exam.guests, exam.booking,
+  (
+    SELECT exam.hotel.hotelNo
+    FROM exam.hotel
+    WHERE city = 'London'
+  ) AS priorHotels
+WHERE exam.guests.guestNo = exam.booking.guestNo AND exam.booking.hotelNo = priorHotels.hotelNo
+GROUP BY guestName, guestAddress
+ORDER BY guestName;
+
 -- c
 SELECT exam.room.roomNo, exam.room.hotelNo, exam.room.type, exam.room.price
 FROM exam.room
@@ -152,7 +163,8 @@ ORDER BY exam.room.price DESC;
 
 -- d
 SELECT exam.booking.roomNo, exam.booking.hotelNo, exam.booking.dateFrom
-FROM exam.booking;
+FROM exam.booking
+WHERE exam.booking.dateTo IS NULL;
 
 
 -- e
@@ -168,6 +180,9 @@ WHERE exam.room.type = 'double'
       AND exam.room.roomNo = exam.booking.roomNo
       AND exam.room.hotelNo = exam.booking.hotelNo;
 
+SELECT SUM(exam.room.price)
+FROM exam.room
+WHERE exam.room.type = 'double';
 
 -- g
 SELECT COUNT(exam.guests.guestNo)
@@ -190,9 +205,12 @@ GROUP BY exam.guests.guestName;
 
 -- j
 SELECT exam.room.hotelNo, exam.room.roomNo, exam.room.type, exam.room.price, exam.guests.guestName
-FROM exam.guests, exam.room, (SELECT exam.booking.hotelNo, exam.booking.roomNo, exam.booking.guestNo
-                              FROM exam.booking
-                              WHERE hotelNo = 1) hotelRooms
+FROM exam.guests, exam.room,
+  (
+    SELECT exam.booking.hotelNo, exam.booking.roomNo, exam.booking.guestNo
+    FROM exam.booking
+    WHERE hotelNo = 1
+  ) AS hotelRooms
 WHERE room.hotelNo = hotelRooms.hotelNo
       AND room.roomNo = hotelRooms.roomNo
       AND guests.guestNo = hotelRooms.guestNo;
@@ -301,7 +319,7 @@ UPDATE exam.room
 
 --------------------------- Определение данных 5 -----------------------
 
--- d
+-- b
 SELECT DISTINCT ON (exam.hotel.city) exam.hotel.hotelNo, exam.hotel.city, MIN(hotelPrice.price)
 FROM exam.hotel,
   (
