@@ -271,26 +271,24 @@ WHERE exam.room.hotelNo = priorHotels.hotelNo;
 
 
 -- o
-SELECT COUNT
-(
+SELECT exam.booking.hotelNo, COUNT(*) / COUNT(DISTINCT exam.booking.hotelNo) AS avgBooking
+FROM exam.booking
+WHERE
+  (
     (exam.booking.dateFrom, exam.booking.dateTo)
       OVERLAPS
     (DATE '2017-08-01', INTERVAL '30 days')
-)
-FROM exam.booking;
+  )
+GROUP BY exam.booking.hotelNo;
 
 
 -- p
-SELECT MAX(exam.room.price) AS maxPrice, priorHotel.hotelName
-FROM exam.room,
-  (
-    SELECT exam.hotel.hotelNo, exam.hotel.hotelName
-    FROM exam.hotel
-    WHERE exam.hotel.city = 'London'
-  ) AS priorHotel
-  WHERE exam.room.hotelNo = priorHotel.hotelNo
-GROUP BY priorHotel.hotelName
-ORDER BY maxPrice DESC;
+SELECT h.hotelNo, r.type, COUNT(r.type) AS X
+FROM exam.booking b, exam.hotel h, exam.room r
+WHERE r.roomNo = b.roomNo
+      AND b.hotelNo = h.hotelNo
+      AND city = 'London'
+GROUP BY type, h.hotelNo;
 
 
 -- g
